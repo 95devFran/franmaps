@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>95sFranMaps</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>95sFranMaps</h1>
+      <p>Cartografía Digital · SIG · Desarrollo Web</p>
+    </div>
+  </header>
+
+  <section class="intro">
+    <div class="container">
+      <h2>Hola, soy Francisco Lastres</h2>
+      <p>
+        Diseño mapas temáticos y visores interactivos que comunican información geográfica con claridad y estilo. Si buscas un diseño creativo y personalizado, 
+        no dudes en contactar.
+      </p>
+    </div>
+  </section>
+  
+  
+
+
+  <!-- Sección Sobre Mí -->
+<section class="about" id="about">
+  <div class="container">
+    <h2>Sobre mí <span role="img" aria-label="chico saludando">🙋‍♂️</span></h2>
+    <p>
+      Apasionado de la cartografía, me encanta convertir datos en mapas que realmente cuenten algo. Me he especializado en Tecnologías de la Información Geográfica, lo que me ha permitido unir la tecnología con la información espacial.
+    </p>
+    <p>
+      Hasta ahora, he trabajado con mapas temáticos y análisis geoespacial, cuidando tanto la parte técnica como el diseño. Me he centrado también en el desarrollo web, aprendiendo HTML, CSS y JavaScript para llevar la cartografía al mundo interactivo. Me gusta pensar que combino lo mejor de la cartografía clásica con las herramientas digitales de hoy.
+    </p>
+    <p>
+      Actualmente participo en proyectos relacionados con SIG y mapas interactivos, y sigo formándome constantemente, especialmente en programación y visualización de datos. Disfruto mucho aprendiendo y mejorando cada día, y me motiva poder aplicar lo que sé en proyectos que generen impacto y comuniquen información de forma clara.
+    </p>
+  </div>
+</section>
+
+<!-- Sección Áreas de Especialización -->
+<section class="skills-section" id="skills">
+  <div class="container">
+    <h2>Áreas de especialización <span role="img" aria-label="lupa">🔍</span></h2>
+    <div class="skills">
+      <div class="accordion">
+        <div class="accordion-toggle">
+          <span role="img" aria-label="satellite">🛰️</span> Análisis Geoespacial
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Procesamiento e interpretación de imágenes satelitales.</li>
+            <li>Análisis espacial aplicado a medio ambiente, ordenación del territorio y sostenibilidad.</li>
+          </ul>
+        </div>
+
+        <div class="accordion-toggle">
+          <span role="img" aria-label="map">🗺️</span> Diseño y Producción Cartográfica
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Creación de mapas temáticos con enfoque comunicativo y estético.</li>
+            <li>Dominio de software SIG (ArcGIS, QGIS) y herramientas gráficas.</li>
+          </ul>
+        </div>
+
+        <div class="accordion-toggle">
+          <span role="img" aria-label="globe">🌐</span> Desarrollo Visores Cartográficos Interactivos
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Desarrollo de visores interactivos con Leaflet, OpenLayers y MapStore.</li>
+            <li>Aplicación de HTML, CSS y JavaScript en el diseño de experiencias geoespaciales web.</li>
+          </ul>
+        </div>
+
+        <div class="accordion-toggle">
+          <span role="img" aria-label="bar chart">📊</span> Visualización y Gestión de Datos Espaciales
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Manejo eficiente de grandes volúmenes de datos.</li>
+            <li>Integración de mapas y gráficos para facilitar la toma de decisiones.</li>
+          </ul>
+        </div>
+
+        <div class="accordion-toggle">
+          <span role="img" aria-label="laptop">💻</span> Programación para SIG
+        </div>
+        <div class="accordion-content">
+          <ul>
+            <li>Automatización de procesos y análisis con Python.</li>
+            <li>Mejora continua en tecnologías web y frameworks orientados al entorno geoespacial.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <h2>Mis proyectos</h2>
+  
+      <!-- Sección desplegable -->
+      <div class="accordion">
+        <button class="accordion-toggle">🗺️ Mapas temáticos</button>
+        <div class="accordion-content">
+          <div class="map-gallery">
+            <div class="map-card">
+              <img src="./cartograma.jpg" alt="Cartograma Turismo España" onclick="openModal(this.src)" />
+              <p>Cartograma Turismo España</p>
+            </div>
+            <div class="map-card">
+              <img src="./happiness.jpeg" alt="Índice Felicidad Europa" onclick="openModal(this.src)" />
+              <p>Índice de Felicidad en Europa</p>
+            </div>
+            <div class="map-card">
+              <img src="./ndvi_soria.jpeg" alt="NDVI Cultivo" onclick="openModal(this.src)" />
+              <p>NDVI Cultivos</p>
+            </div>
+            <div class="map-card">
+              <img src="./tierra subbetic.jpeg" alt="Mapa Parque Natural Estilo Fantasía" onclick="openModal(this.src)" />
+              <p>Mapa Parque Natural con Estilo Fantasía</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-toggle">💻 Visores Interactivos</button>
+        <div class="accordion-content">
+          <div class="map-gallery visor-gallery">
+            <div class="map-card">
+              <a href="https://visor-estaciones-thv3.vercel.app/" target="_blank">
+                <img src="./miniatura.JPG" alt="Visor Interactivo - Ejemplo" />
+              </a>
+              <p>Visor Interactivo: Estaciones y Vías de Tren</p>
+            </div>
+            <!-- Puedes duplicar más map-card aquí -->
+          </div>
+        </div>
+      </div>
+      
+      
+  
+      <!-- Modal para ampliar imagen -->
+      <div id="imgModal" class="modal" onclick="closeModal(event)">
+        <span class="close-btn" onclick="closeModal(event)"></span>
+        <img id="modalImage" />
+      </div>
+    </div>
+  </section>
+  
+
+  
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Contacto</h2>
+      <p>
+        📧 <a href="mailto:lastres.gomez@gmail.com" style="color: #56c8ff;">lastres.gomez@gmail.com</a> |
+        <a href="https://www.linkedin.com/in/francisco-lastres-gomez/" target="_blank" style="color: #56c8ff; text-decoration: none;">
+          <i class="fab fa-linkedin"></i> Francisco Lastres Gómez
+        </a>
+      </p>
+    </div>
+  </section>
+  
+
+  <footer>
+    <p>&copy; 2025 Francisco Lastres | 95sFranMaps</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
