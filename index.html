@@ -112,32 +112,59 @@
   
       <!-- Sección desplegable -->
       <div class="accordion">
-        <button class="accordion-toggle">🗺️ Mapas temáticos</button>
-        <div class="accordion-content">
-          <div class="map-gallery">
-            <div class="map-card">
-              <img src="./cartograma.jpg" alt="Cartograma Turismo España" onclick="openModal(this.src)" />
-              <p>Cartograma Turismo España</p>
-            </div>
-            <div class="map-card">
-              <img src="./happiness.jpeg" alt="Índice Felicidad Europa" onclick="openModal(this.src)" />
-              <p>Índice de Felicidad en Europa</p>
-            </div>
-              <div class="map-card">
-              <img src="./Madrid.jpg" alt="ciudad Neon" onclick="openModal(this.src)" />
-              <p>Cartografía estilo neón</p>
-            </div>
-            <div class="map-card">
-              <img src="./ndvi_soria.jpeg" alt="NDVI Cultivo" onclick="openModal(this.src)" />
-              <p>NDVI Cultivos</p>
-            </div>
-            <div class="map-card">
-              <img src="./tierra subbetic.jpeg" alt="Mapa Parque Natural Estilo Fantasía" onclick="openModal(this.src)" />
-              <p>Mapa Parque Natural con Estilo Fantasía</p>
-            </div>
-          </div>
+  <button class="accordion-toggle">🗺️ Mapas temáticos</button>
+  <div class="accordion-content">
+    <div class="map-gallery">
+
+      <!-- Cartograma Turismo España -->
+      <div class="map-card">
+        <img src="./cartograma.jpg" alt="Cartograma Turismo España" onclick="openModal(this.src)" />
+        <div class="overlay">
+          Cartograma que representa el turismo en España por provincia utilizando puntos de mayor o menor tamaño en función de la cantidad de turistas recibidos.
         </div>
+        <p>Cartograma Turismo España</p>
       </div>
+
+      <!-- Índice de Felicidad en Europa -->
+      <div class="map-card">
+        <img src="./happiness.jpeg" alt="Índice Felicidad Europa" onclick="openModal(this.src)" />
+        <div class="overlay">
+          Mapa temático del índice de felicidad en países europeos según el World Happiness Report 2025, visualizando diferencias regionales de bienestar en Europa.
+        </div>
+        <p>Índice de Felicidad en Europa</p>
+      </div>
+
+      <!-- Cartografía estilo neón Madrid -->
+      <div class="map-card">
+        <img src="./Madrid.jpg" alt="Ciudad Neón" onclick="openModal(this.src)" />
+        <div class="overlay">
+          Visualización de la forma urbana de Madrid con un estilo neón, explorando el potencial del análisis visual para representar patrones de ciudades.
+        </div>
+        <p>Cartografía estilo neón</p>
+      </div>
+
+      <!-- NDVI Cultivos -->
+      <div class="map-card">
+        <img src="./ndvi_soria.jpeg" alt="NDVI Cultivo" onclick="openModal(this.src)" />
+        <div class="overlay">
+          Mapa NDVI (Índice de Vegetación de Diferencia Normalizada) de cultivos en una zona de Soria, utilizado para analizar patrones de humedad y vigor de cultivos.
+        </div>
+        <p>NDVI Cultivos</p>
+      </div>
+
+      <!-- Mapa Parque Natural Estilo Fantasía -->
+      <div class="map-card">
+        <img src="./tierra subbetic.jpeg" alt="Mapa Parque Natural Estilo Fantasía" onclick="openModal(this.src)" />
+        <div class="overlay">
+          Mapa de un parque natural con estilo fantasía, creado con simbología en QGIS y elementos gráficos de diseño usados en videojuegos e ilustración web.
+        </div>
+        <p>Mapa Parque Natural con Estilo Fantasía</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
      <div class="accordion">
   <button class="accordion-toggle">💻 Visores Interactivos</button>
