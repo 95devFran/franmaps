@@ -236,11 +236,17 @@ h2 {
   line-height: 1.4;
   border-radius: 8px;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .map-card:hover .overlay {
   opacity: 1;
+  pointer-events: auto;
 }
+
+
+
+
 
 /* Responsive */
 @media (max-width: 768px) {
