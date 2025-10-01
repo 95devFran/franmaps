@@ -1,334 +1,225 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FranMaps</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de Mapas Temáticos</title>
 
+  <!-- --- CSS --- -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    /* --- Galería --- */
+    .accordion {
+      width: 90%;
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+
+    .accordion-toggle {
+      width: 100%;
+      background-color: #2c3e50;
+      color: #fff;
+      cursor: pointer;
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      text-align: left;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .accordion-toggle:hover {
+      background-color: #34495e;
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 15px 0;
+    }
+
+    .map-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .map-card {
+      position: relative;
+      width: 200px;
+      margin: 10px;
+    }
+
+    .map-card img {
+      width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      display: block;
+    }
+
+    .map-card p {
+      text-align: center;
+      margin: 5px 0 0 0;
+      font-weight: bold;
+    }
+
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      width: 100%;
+      opacity: 0;
+      transition: .3s;
+      font-size: 14px;
+      padding: 10px;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .map-card:hover .overlay {
+      opacity: 1;
+    }
+
+    /* --- Modal --- */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      padding-top: 60px;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #000;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #bbb;
+    }
+
+  </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>FranMaps</h1>
-      <p>Cartografía Digital · SIG · Desarrollo Web</p>
-    </div>
-  </header>
 
-  <section class="intro">
-    <div class="container">
-      <h2></h2>
-      <p>
-        Diseño mapas temáticos y visores interactivos que comunican información geográfica con claridad y estilo.
-      </p>
-    </div>
-  </section>
-  
-  
+  <!-- --- Galería Desplegable --- -->
+  <div class="accordion">
+    <button class="accordion-toggle">🗺️ Mapas temáticos</button>
+    <div class="accordion-content">
+      <div class="map-gallery">
 
-
-  <!-- Sección Sobre Mí 
-<section class="about" id="about">
-  <div class="container">
-    <h2>Sobre mí <span role="img" aria-label="chico saludando">🙋‍♂️</span></h2>
-    <p>
-      Apasionado de la cartografía, me encanta convertir datos en mapas que realmente cuenten algo. Me he especializado en Tecnologías de la Información Geográfica, lo que me ha permitido unir la tecnología con la información espacial.
-    </p>
-    <p>
-      Hasta ahora, he trabajado con mapas temáticos y análisis geoespacial, cuidando tanto la parte técnica como el diseño. Me he centrado también en el desarrollo web, aprendiendo HTML, CSS y JavaScript para llevar la cartografía al mundo interactivo. Me gusta pensar que combino lo mejor de la cartografía clásica con las herramientas digitales de hoy.
-    </p>
-    <p>
-      Actualmente participo en proyectos relacionados con SIG y mapas interactivos, y sigo formándome constantemente, especialmente en programación y visualización de datos. Disfruto mucho aprendiendo y mejorando cada día, y me motiva poder aplicar lo que sé en proyectos que generen impacto y comuniquen información de forma clara.
-    </p>
-  </div>
-</section>-->
-
-<!-- Sección Áreas de Especialización -->
-<section class="skills-section" id="skills">
-  <div class="container">
-    <h2>Áreas de especialización <span role="img" aria-label="lupa">🔍</span></h2>
-    <div class="skills">
-      <div class="accordion">
-        <div class="accordion-toggle">
-          <span role="img" aria-label="satellite">🛰️</span> Análisis Geoespacial
-        </div>
-        <div class="accordion-content">
-          <ul>
-            <li>Procesamiento e interpretación de imágenes satelitales.</li>
-            <li>Análisis espacial aplicado a medio ambiente, ordenación del territorio y sostenibilidad.</li>
-          </ul>
-        </div>
-
-        <div class="accordion-toggle">
-          <span role="img" aria-label="map">🗺️</span> Diseño y Producción Cartográfica
-        </div>
-        <div class="accordion-content">
-          <ul>
-            <li>Creación de mapas temáticos con enfoque comunicativo y estético.</li>
-            <li>Dominio de software SIG (ArcGIS, QGIS) y herramientas gráficas.</li>
-          </ul>
-        </div>
-
-        <div class="accordion-toggle">
-          <span role="img" aria-label="globe">🌐</span> Desarrollo Visores Cartográficos Interactivos
-        </div>
-        <div class="accordion-content">
-          <ul>
-            <li>Desarrollo de visores interactivos con Leaflet, OpenLayers y MapStore.</li>
-            <li>Aplicación de HTML, CSS y JavaScript en el diseño de experiencias geoespaciales web.</li>
-          </ul>
-        </div>
-
-        <div class="accordion-toggle">
-          <span role="img" aria-label="bar chart">📊</span> Visualización y Gestión de Datos Espaciales
-        </div>
-        <div class="accordion-content">
-          <ul>
-            <li>Manejo eficiente de grandes volúmenes de datos.</li>
-            <li>Integración de mapas y gráficos para facilitar la toma de decisiones.</li>
-          </ul>
-        </div>
-
-        <div class="accordion-toggle">
-          <span role="img" aria-label="laptop">💻</span> Programación para SIG
-        </div>
-        <div class="accordion-content">
-          <ul>
-            <li>Automatización de procesos y análisis con Python.</li>
-            <li>Mejora continua en tecnologías web y frameworks orientados al entorno geoespacial.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-  
-  <section class="portfolio" id="portfolio">
-    <div class="container">
-      <h2>Mis proyectos</h2>
-  
-<!-- Sección desplegable -->
-<div class="accordion">
-  <button class="accordion-toggle">🗺️ Mapas temáticos</button>
-  <div class="accordion-content">
-    <div class="map-gallery">
-
-      <!-- Cartograma Turismo España -->
-      <div class="map-card">
-        <img src="./cartograma.jpg" alt="Cartograma Turismo España" onclick="openModal(this.src)" />
-        <div class="overlay">
-          Cartograma que representa el turismo en España por provincia utilizando puntos de mayor o menor tamaño en función de la cantidad de turistas recibidos.
-        </div>
-        <p>Cartograma Turismo España</p>
-      </div>
-
-      <!-- Índice de Felicidad en Europa -->
-      <div class="map-card">
-        <img src="./happiness.jpeg" alt="Índice Felicidad Europa" onclick="openModal(this.src)" />
-        <div class="overlay">
-          Mapa temático del índice de felicidad en países europeos según el World Happiness Report 2025, visualizando diferencias regionales de bienestar en Europa.
-        </div>
-        <p>Índice de Felicidad en Europa</p>
-      </div>
-
-      <!-- Cartografía estilo neón Madrid -->
-      <div class="map-card">
-        <img src="./Madrid.jpg" alt="Ciudad Neón" onclick="openModal(this.src)" />
-        <div class="overlay">
-          Visualización de la forma urbana de Madrid con un estilo neón, explorando el potencial del análisis visual para representar patrones de ciudades.
-        </div>
-        <p>Cartografía estilo neón</p>
-      </div>
-
-      <!-- NDVI Cultivos -->
-      <div class="map-card">
-        <img src="./ndvi_soria.jpeg" alt="NDVI Cultivo" onclick="openModal(this.src)" />
-        <div class="overlay">
-          Mapa NDVI (Índice de Vegetación de Diferencia Normalizada) de cultivos en una zona de Soria, utilizado para analizar patrones de humedad y vigor de cultivos.
-        </div>
-        <p>NDVI Cultivos</p>
-      </div>
-
-      <!-- Mapa Parque Natural Estilo Fantasía -->
-      <div class="map-card">
-        <img src="./tierra subbetic.jpeg" alt="Mapa Parque Natural Estilo Fantasía" onclick="openModal(this.src)" />
-        <div class="overlay">
-          Mapa de un parque natural con estilo fantasía, creado con simbología en QGIS y elementos gráficos de diseño usados en videojuegos e ilustración web.
-        </div>
-        <p>Mapa Parque Natural con Estilo Fantasía</p>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- Modal para mostrar la imagen en grande -->
-<div id="imageModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <img class="modal-content" id="modalImage">
-</div>
-
-<style>
-/* --- Modal --- */
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 9999; 
-  padding-top: 60px; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgba(0,0,0,0.8);
-}
-
-.modal-content {
-  margin: auto;
-  display: block;
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-  box-shadow: 0 0 15px #000;
-}
-
-.close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.close:hover {
-  color: #bbb;
-}
-
-/* --- Estilo overlay que ya tienes --- */
-.map-card {
-  position: relative;
-  display: inline-block;
-  margin: 10px;
-}
-
-.map-card img {
-  width: 200px;
-  cursor: pointer;
-  border-radius: 8px;
-}
-
-.overlay {
-  position: absolute;
-  bottom: 0;
-  background: rgba(0,0,0,0.7);
-  color: #fff;
-  width: 100%;
-  opacity: 0;
-  transition: .3s;
-  font-size: 14px;
-  padding: 10px;
-  border-radius: 0 0 8px 8px;
-}
-
-.map-card:hover .overlay {
-  opacity: 1;
-}
-</style>
-
-<script>
-function openModal(src) {
-  document.getElementById("imageModal").style.display = "block";
-  document.getElementById("modalImage").src = src;
-}
-
-function closeModal() {
-  document.getElementById("imageModal").style.display = "none";
-}
-</script>
-
-
-
-
-     <div class="accordion">
-  <button class="accordion-toggle">💻 Visores Interactivos</button>
-  <div class="accordion-content">
-    <div class="map-gallery visor-gallery">
-
-      <!-- Visor Estaciones y Vías de Tren -->
-      <div class="map-card">
-        <a href="https://visor-estaciones-thv3.vercel.app/" target="_blank">
-          <img src="miniatura_estaciones.JPG" alt="Visor Estaciones y Vías de Tren" />
+        <!-- Cartograma Turismo España -->
+        <div class="map-card">
+          <img src="./cartograma.jpg" alt="Cartograma Turismo España" onclick="openModal(this.src, this.alt)" />
           <div class="overlay">
-            Visualización de estaciones y vías de tren de Madrid con un diseño cibernético y futurista utilizando CSS para representar de forma clara las líneas y puntos en el mapa.
+            Cartograma que representa el turismo en España por provincia utilizando puntos de mayor o menor tamaño en función de la cantidad de turistas recibidos.
           </div>
-        </a>
-        <p>Estaciones y Vías de Tren</p>
-      </div>
+          <p>Cartograma Turismo España</p>
+        </div>
 
-      <!-- Visor Valladolid -->
-      <div class="map-card">
-        <a href="https://valladolid.vercel.app/" target="_blank">
-          <img src="miniatura_valladolid.JPG" alt="Visor Puntos Turísticos de Valladolid" />
+        <!-- Índice de Felicidad en Europa -->
+        <div class="map-card">
+          <img src="./happiness.jpeg" alt="Índice Felicidad Europa" onclick="openModal(this.src, this.alt)" />
           <div class="overlay">
-            Mapa turístico interactivo de Valladolid con puntos de interés y enlaces a páginas oficiales y empresas locales para que el usuario pueda conocer más sobre cada lugar.
+            Mapa temático del índice de felicidad en países europeos según el World Happiness Report 2025, visualizando diferencias regionales de bienestar en Europa.
           </div>
-        </a>
-        <p>Puntos Turísticos de Valladolid</p>
-      </div>
+          <p>Índice de Felicidad en Europa</p>
+        </div>
 
-      <!-- Visor Tráfico en Tiempo Real -->
-      <div class="map-card">
-        <a href="https://traffic-real-time.vercel.app/" target="_blank">
-          <img src="traffic.png" alt="Visor Tráfico en Tiempo Real" />
+        <!-- Cartografía estilo neón Madrid -->
+        <div class="map-card">
+          <img src="./Madrid.jpg" alt="Ciudad Neón" onclick="openModal(this.src, this.alt)" />
           <div class="overlay">
-            Visualización del tráfico en tiempo real utilizando la API de TomTom para mostrar de forma interactiva el estado actual del tráfico con colores según la congestión.
+            Visualización de la forma urbana de Madrid con un estilo neón, explorando el potencial del análisis visual para representar patrones de ciudades.
           </div>
-        </a>
-        <p>Tráfico en Tiempo Real</p>
-      </div>
+          <p>Cartografía estilo neón</p>
+        </div>
 
+        <!-- NDVI Cultivos -->
+        <div class="map-card">
+          <img src="./ndvi_soria.jpeg" alt="NDVI Cultivo" onclick="openModal(this.src, this.alt)" />
+          <div class="overlay">
+            Mapa NDVI (Índice de Vegetación de Diferencia Normalizada) de cultivos en una zona de Soria, utilizado para analizar patrones de humedad y vigor de cultivos.
+          </div>
+          <p>NDVI Cultivos</p>
+        </div>
+
+        <!-- Mapa Parque Natural Estilo Fantasía -->
+        <div class="map-card">
+          <img src="./tierra subbetic.jpeg" alt="Mapa Parque Natural Estilo Fantasía" onclick="openModal(this.src, this.alt)" />
+          <div class="overlay">
+            Mapa de un parque natural con estilo fantasía, creado con simbología en QGIS y elementos gráficos de diseño usados en videojuegos e ilustración web.
+          </div>
+          <p>Mapa Parque Natural con Estilo Fantasía</p>
+        </div>
+
+      </div>
     </div>
   </div>
-</div>
 
-      
-      
-  
-      <!-- Modal para ampliar imagen -->
-      <div id="imgModal" class="modal" onclick="closeModal(event)">
-        <span class="close-btn" onclick="closeModal(event)"></span>
-        <img id="modalImage" />
-      </div>
-    </div>
-  </section>
-  
+  <!-- --- Modal --- -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
 
-  
-  <section class="contact" id="contact">
-    <div class="container">
-      <h2>Contacto</h2>
-      <p>
-        📧 <a href="mailto:lastres.gomez@gmail.com" style="color: #56c8ff;">lastres.gomez@gmail.com</a> |
-        <a href="https://www.linkedin.com/in/francisco-lastres-gomez/" target="_blank" style="color: #56c8ff; text-decoration: none;">
-          <i class="fab fa-linkedin"></i> Francisco Lastres Gómez
-        </a>
-      </p>
-    </div>
-  </section>
-  
+  <!-- --- Scripts --- -->
+  <script>
+    // --- Función Accordion ---
+    const accordionToggle = document.querySelector('.accordion-toggle');
+    const accordionContent = document.querySelector('.accordion-content');
 
-  <footer>
-    <p>&copy; 2025 Francisco Lastres | <a href="https://github.com/95devFran">95devFran</a></p>
-  </footer>
+    accordionToggle.addEventListener('click', () => {
+      accordionContent.style.display = accordionContent.style.display === 'block' ? 'none' : 'block';
+    });
 
-  <script src="script.js"></script>
+    // --- Modal ---
+    function openModal(src, alt) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      modal.style.display = "block";
+      modalImg.src = src;
+      modalImg.alt = alt;
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+
+    // Cerrar al hacer clic fuera de la imagen
+    window.onclick = function(event) {
+      const modal = document.getElementById("imageModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    };
+
+    // Cerrar con tecla ESC
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") closeModal();
+    });
+  </script>
+
 </body>
 </html>
-
-
-
-
