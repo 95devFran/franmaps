@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería de Mapas Temáticos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cabecera -->
+  <header>
+    <h1>🌐 Galería de Mapas Temáticos</h1>
+    <p>Exploración visual de datos y cartografía creativa</p>
+  </header>
+
+  <!-- Galería Desplegable -->
+  <div class="accordion">
+    <button class="accordion-toggle">🗺️ Mapas temáticos</button>
+    <div class="accordion-content">
+      <div class="map-gallery">
+
+        <div class="map-card">
+          <img src="images/cartograma.jpg" alt="Cartograma Turismo España" onclick="openModal(this.src, this.alt)" />
+          <div class="overlay">Cartograma que representa el turismo en España por provincia.</div>
+          <p>Cartograma Turismo España</p>
+        </div>
+
+        <div class="map-card">
+          <img src="images/happiness.jpeg" alt="Índice Felicidad Europa" onclick="openModal(this.src, this.alt)" />
+          <div class="overlay">Mapa temático del índice de felicidad en Europa.</div>
+          <p>Índice de Felicidad en Europa</p>
+        </div>
+
+        <div class="map-card">
+          <img src="images/Madrid.jpg" alt="Ciudad Neón" onclick="openModal(this.src, this.alt)" />
+          <div class="overlay">Visualización estilo neón de Madrid.</div>
+          <p>Cartografía estilo neón</p>
+        </div>
+
+        <div class="map-card">
+          <img src="images/ndvi_soria.jpeg" alt="NDVI Cultivo" onclick="openModal(this.src, this.alt)" />
+          <div class="overlay">Mapa NDVI de cultivos en Soria.</div>
+          <p>NDVI Cultivos</p>
+        </div>
+
+        <div class="map-card">
+          <img src="images/tierra subbetic.jpeg" alt="Mapa Parque Natural Estilo Fantasía" onclick="openModal(this.src, this.alt)" />
+          <div class="overlay">Mapa de parque natural con estilo fantasía.</div>
+          <p>Mapa Parque Natural con Estilo Fantasía</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- --- Visores Web Interactivos --- -->
+<div class="accordion">
+  <button class="accordion-toggle">🖥️ Visores Web Interactivos</button>
+  <div class="accordion-content">
+    <div class="map-gallery">
+
+      <!-- Tráfico en Tiempo Real -->
+      <div class="map-card">
+        <a href="https://traffic-real-time.vercel.app/" target="_blank">
+          <img src="images/traffic.png" alt="Tráfico en Tiempo Real" />
+        </a>
+        <div class="overlay">
+          Visor de tráfico en tiempo real basado en la API de TomTom, mostrando el estado de las carreteras y congestiones.
+        </div>
+        <p>Tráfico en Tiempo Real</p>
+      </div>
+
+      <!-- Puntos Turísticos Valladolid -->
+      <div class="map-card">
+        <a href="https://valladolid.vercel.app/" target="_blank">
+          <img src="images/valladolid.JPG" alt="Puntos Turísticos Valladolid" />
+        </a>
+        <div class="overlay">
+          Mapa interactivo de Valladolid con puntos turísticos, información de cada lugar y enlaces a fotos y webs relacionadas.
+        </div>
+        <p>Puntos Turísticos Valladolid</p>
+      </div>
+
+      <!-- Estaciones de tren Madrid -->
+      <div class="map-card">
+        <a href="https://visor-estaciones.vercel.app/" target="_blank">
+          <img src="images/estaciones.JPG" alt="Estaciones de tren Madrid" />
+        </a>
+        <div class="overlay">
+          Mapa interactivo de estaciones de tren y vías de Madrid con estilo cibernético, mostrando información y conexiones.
+        </div>
+        <p>Estaciones de tren Madrid</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+  <!-- Modal -->
+  <div id="imageModal" class="modal">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 - (icono linkedIn con enlace) | contacto: lastres.gomez@gmail.com</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
