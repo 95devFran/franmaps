@@ -4,20 +4,12 @@
 /* Estilos generales */
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif; /* Texto legible */
+  font-family: 'Roboto', sans-serif;
   background-color: #031417;
   color: #f0f0f0;
   line-height: 1.6;
 }
 
-.container {
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2rem 0;
-}
-
-/* Cabecera */
 header {
   background-color: #031417;
   text-align: center;
@@ -34,35 +26,11 @@ h1 {
   text-shadow: 0 0 5px #00fff7;
 }
 
-h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #031417;
-  display: inline-block;
-  color: #00fff7;
-  text-shadow: 0 0 4px #00fff7;
-}
-
-h3 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.2rem;
-  margin-bottom: 0.3rem;
-  color: #56c8ff;
-}
-
 p {
-  font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   color: #e0e0e0;
 }
 
-a {
-  color: #56c8ff;
-  text-decoration: none;
-}
-
-/* Footer */
 footer {
   text-align: center;
   padding: 2rem;
@@ -75,19 +43,18 @@ footer {
 
 /* Acordeón */
 .accordion-toggle {
-  background-color: #031417; /* Fondo igual al del body */
+  background-color: #031417;
   color: #00fff7;
   padding: 1rem;
   font-size: 1.2rem;
-  text-align: left;
   border: none;
   width: 100%;
   cursor: pointer;
-  border-left: 4px solid #00fff7; /* Efecto neón */
+  border-left: 4px solid #00fff7;
   margin-top: 1rem;
-  transition: background-color 0.3s, box-shadow 0.3s;
   font-family: 'Orbitron', sans-serif;
   text-shadow: 0 0 4px #00fff7;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .accordion-toggle:hover {
@@ -95,30 +62,11 @@ footer {
   box-shadow: 0 0 10px #00fff7;
 }
 
-/* Encabezados (h2) - línea inferior neón */
-h2 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  display: inline-block;
-  color: #00fff7;
-  text-shadow: 0 0 4px #00fff7;
-  border-bottom: 2px solid #00fff7;
-  box-shadow: 0 2px 8px rgba(0, 255, 247, 0.5);
-}
-
-
 .accordion-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease-out;
   padding: 0 1rem;
-}
-
-.accordion-content p {
-  margin-bottom: 1rem;
-  font-size: 1rem;
-  line-height: 1.6;
 }
 
 /* Galería de Mapas */
@@ -131,9 +79,11 @@ h2 {
 }
 
 .map-card {
+  position: relative;
   background-color: #1c1c1c;
   border-radius: 8px;
   padding: 0.5rem;
+  overflow: hidden;
   transition: transform 0.3s ease;
 }
 
@@ -146,78 +96,13 @@ h2 {
   width: 100%;
   height: 180px;
   border-radius: 5px;
+  object-fit: cover;
   cursor: pointer;
   transition: transform 0.3s ease-out;
-  object-fit: cover;
 }
 
 .map-card img:hover {
   transform: scale(1.05);
-}
-
-/* Modal para imagen */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.85);
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.modal img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
-
-.modal img:hover {
-  opacity: 0.95;
-}
-
-.close-btn {
-  color: #fff;
-  font-size: 2rem;
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  cursor: pointer;
-  z-index: 10000;
-}
-
-/* Visor interactivo miniatura */
-.visor-gallery .map-card img {
-  height: 120px;
-  object-fit: cover;
-}
-
-/* Proyectos */
-.projects {
-  display: grid;
-  gap: 1.5rem;
-}
-
-.project {
-  background-color: #1e1e1e;
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 4px solid #2980b9;
-}
-.map-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 8px;
-}
-
-.map-card img {
-  display: block;
-  width: 100%;
-  border-radius: 8px;
 }
 
 .map-card .overlay {
@@ -241,16 +126,106 @@ h2 {
 
 .map-card:hover .overlay {
   opacity: 1;
-  pointer-events: auto;
+}
+
+/* Modal */
+.modal {
+  display: none; /* por defecto oculto */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 0 20px #000;
 }
 
 
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
 
-
+.close-btn {
+  color: #fff;
+  font-size: 2rem;
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  cursor: pointer;
+  z-index: 10000;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
   .map-gallery {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
+}
+
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  perspective: 1000px; /* necesario para el efecto 3D */
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00fff7;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.flip-card-front {
+  background-color: #1c1c1c;
+  color: #00fff7;
+}
+
+.flip-card-back {
+  background-color: #04292d;
+  color: #f0f0f0;
+  transform: rotateY(180deg);
+}
+
+.flip-card .icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
