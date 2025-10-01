@@ -110,8 +110,8 @@
     <div class="container">
       <h2>Mis proyectos</h2>
   
-      <!-- Sección desplegable -->
-      <div class="accordion">
+<!-- Sección desplegable -->
+<div class="accordion">
   <button class="accordion-toggle">🗺️ Mapas temáticos</button>
   <div class="accordion-content">
     <div class="map-gallery">
@@ -164,6 +164,92 @@
     </div>
   </div>
 </div>
+
+<!-- Modal para mostrar la imagen en grande -->
+<div id="imageModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+<style>
+/* --- Modal --- */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 9999; 
+  padding-top: 60px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #000;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: #bbb;
+}
+
+/* --- Estilo overlay que ya tienes --- */
+.map-card {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.map-card img {
+  width: 200px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  color: #fff;
+  width: 100%;
+  opacity: 0;
+  transition: .3s;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 0 0 8px 8px;
+}
+
+.map-card:hover .overlay {
+  opacity: 1;
+}
+</style>
+
+<script>
+function openModal(src) {
+  document.getElementById("imageModal").style.display = "block";
+  document.getElementById("modalImage").src = src;
+}
+
+function closeModal() {
+  document.getElementById("imageModal").style.display = "none";
+}
+</script>
+
 
 
      <div class="accordion">
@@ -241,5 +327,6 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
