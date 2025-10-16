@@ -229,3 +229,65 @@ footer {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
+
+
+/* Modal galería Ciudad Neón */
+#galleryModal {
+  display: none;
+  justify-content: center; /* centra horizontal */
+  align-items: center;     /* centra vertical */
+  flex-direction: column;  /* imagen arriba, caption debajo */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  position: fixed;
+  top: 0; left: 0;
+  z-index: 1000;
+}
+
+
+#galleryModal .modal-content {
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00fff7;
+}
+
+#galleryModal .caption {
+  color: #00fff7;
+  font-family: 'Orbitron', sans-serif;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  text-align: center;
+  text-shadow: 0 0 5px #00fff7;
+}
+
+#galleryModal .close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+#galleryModal .prev,
+#galleryModal .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  font-size: 50px;
+  color: #00fff7;
+  user-select: none;
+  transform: translateY(-50%);
+  transition: color 0.3s;
+}
+
+#galleryModal .prev:hover,
+#galleryModal .next:hover {
+  color: #fff;
+}
+
+#galleryModal .prev { left: 20px; }
+#galleryModal .next { right: 20px; }
