@@ -46,7 +46,7 @@ function closeModal() {
 // --- Galería Ciudad Neón ---
 const cityNeonImages = [
   { src: "images/Madrid.jpg", caption: "Ciudad Neón - Madrid" },
-  { src: "images/london.jpg", caption: "Ciudad Neón - Londres" }
+  { src: "images/London.jpg", caption: "Ciudad Neón - Londres" }
 ];
 
 let currentImageIndex = 0;
@@ -80,3 +80,4 @@ function showGalleryImage(index) {
   img.src = cityNeonImages[index].src;
   caption.textContent = cityNeonImages[index].caption;
 }
+
