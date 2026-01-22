@@ -47,7 +47,10 @@ function closeModal() {
 const cityNeonImages = [
   { src: "images/Madrid.jpg", caption: "Ciudad Neón - Madrid" },
   { src: "images/London.jpg", caption: "Ciudad Neón - Londres" },
-  { src: "images/Toulouse.jpg", caption: "Ciudad Neón - Toulouse" }
+  { src: "images/Toulouse.jpg", caption: "Ciudad Neón - Toulouse" },
+  { src: "images/Brno.jpg", caption: "Ciudad Neón - Brno"},
+  { src: "images/Zurich.jpg", caption: "Ciudad Neón - Zürich" },
+  { src: "images/Amsterdam.jpg", caption: "Ciudad Neón - Amsterdam" }
 ];
 
 let currentImageIndex = 0;
@@ -81,5 +84,6 @@ function showGalleryImage(index) {
   img.src = cityNeonImages[index].src;
   caption.textContent = cityNeonImages[index].caption;
 }
+
 
 
